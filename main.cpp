@@ -22,16 +22,13 @@ int main(int argc, char **argv) {
     string ip = argv[1];
     string api_full = api + ip + "?fields=761";
 
-    try
-    {
+    try {
         http::Request request{api_full};
 
         const auto response = request.send("GET");
 
         printf("\n\033[1;33m%s\033[0m\n", response.body.data());
-    }
-    catch (const exception& e)
-    {
+    } catch (const exception& e) {
         cerr << "error: " << e.what() << '\n';
     }
 
